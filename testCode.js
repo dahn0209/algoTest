@@ -1,3 +1,6 @@
+
+
+
 function solution(A) {
     let mark = new Set();
     let curLength = 0;
@@ -26,4 +29,4 @@ function solution(A) {
     return Math.max(...allSeqLength);
 }
 
-console.log(solution([1,2,3,2,3]))
+console.log('dee=>',solution([1,2,3,2,3]))
