@@ -72,3 +72,34 @@ console.log('target=>',target,'midFirst=>',mid,'nums[mid]=>',nums[mid])
     return lo<=hi ? [lo,hi] : [-1,-1]
 
 };
+
+
+var searchRange = function(nums, target) {
+
+    if(nums.length==0){
+        return [-1,-1]
+    }
+
+    let left=0;
+    let right=nums.length-1;
+
+    while(left<=right){
+
+         if(nums[left]!==target && nums[right]!==target){
+            left++;
+            right--;
+        }
+        else if(nums[left]===target && nums[right]!==target){
+            right--;
+
+        }
+         else if(nums[left]!==target && nums[right]===target){
+            left++;
+        }else{
+            return[left,right]
+
+        }
+
+    }
+    return [-1,-1]
+};
