@@ -76,3 +76,28 @@ var firstMissingPositive = function(nums) {
         return n + 1;
     }
 
+
+    var firstMissingPositive = function(nums) {
+    for(let i=0;i<nums.length;i++){
+        //if it is at whrere it should be'
+        //and the place for ti is not occupied
+
+        //swap current number with the number at its place
+        const rightPosition=nums[i]-1
+        if(nums[i]!==i+1 && rightPosition>=0 &&rightPosition<nums.length &&nums[i] !==nums[rightPosition]){
+            const temp=nums[i];
+            nums[i]=nums[rightPosition];
+            nums[rightPosition]=temp
+            i-=1;
+        }
+    }
+
+    for(let i=0;i<i<nums.length;i++){
+        if(nums[i]!==i+1){
+            return i+1
+        }
+    }
+    return nums.length+1
+
+};
+
