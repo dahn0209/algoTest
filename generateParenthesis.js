@@ -19,6 +19,8 @@ const isValid =(s)=> {
     }
     return stack.length===0
 };
+
+
 ////treee  //dfs//
 var generateParenthesis = function(n) {
     //global result//
@@ -43,9 +45,40 @@ var generateParenthesis = function(n) {
         dfs(i+1,n,slate);
         slate.pop()
     }
-
-
    dfs(0,n,[])
+    return result
+};
+
+
+////treee  //dfs//
+var generateParenthesis = function(n) {
+    //global result//
+    const result=[];
+
+    //dfs recursive helper//
+    const dfs=(i,n,slate,oCount,cCount)=>{
+        ///backtracking case///
+        if(oCount>n) return
+        if(cCount>oCount) return
+
+        ///base case///
+        if(i===n*2){
+            result.push(slate.join(''))
+            return
+        }
+        ///dfs recursive call//
+
+        //add open parenthesis//
+        slate.push('(');
+        dfs(i+1,n,slate,oCount+1,cCount);
+        slate.pop()
+        //add closed parenthesis
+          slate.push(')');
+        dfs(i+1,n,slate,oCount,cCount+1);
+        slate.pop()
+    }
+
+   dfs(0,n,[],0,0)
     return result
 
 
