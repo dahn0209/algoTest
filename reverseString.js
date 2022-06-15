@@ -19,3 +19,17 @@ var reverseString = function(s) {
     s.reverse()
 
 };
+
+
+var reverseString = function(s) {
+
+    let left=0;
+    let right=s.length-1;
+    while(left<right){
+        let firstVal=s[left];
+        s[left]=s[right];
+        s[right]=firstVal;
+        left++;
+        right--;
+    }
+};
