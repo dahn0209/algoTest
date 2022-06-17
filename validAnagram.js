@@ -33,6 +33,67 @@ function validAnagram(first, second) {
 }
 
 
+
+
+function isAnagram(s, t) {
+   if (s.length === t.length) {
+    let sArray = s.split('');
+    let tArray = t.split('');
+
+    sArray.sort();
+    tArray.sort();
+
+    for (let i = 0; i < s.length; i++) {
+      if (sArray[i] !== tArray[i]) {
+        return false;
+      }
+    }
+
+    return true;
+  } else {
+    return false;
+  }
+}
+
+
+var isAnagram = function(s, t) {
+
+    if(s.length!==t.length){
+        return false;
+    }
+
+    const sLetters={};
+
+    for(let char of s){
+        if(!sLetters[char]){
+            sLetters[char]=1
+        }else{
+            sLetters[char]++
+        }
+    }
+
+    console.log(sLetters)
+
+
+    for(let char of t){
+        if(sLetters[char]===null){
+
+            return false;
+        }
+
+        if(sLetters[char]){
+            sLetters[char]--;
+        }
+
+        if(sLetters[char]===0){
+            delete sLetters[char]
+        }
+    }
+
+
+    return Object.keys(sLetters).length===0
+};
+
 validAnagram('', '');
 
 validAnagram('aaz', 'zza');
