@@ -70,3 +70,53 @@ var decodeVariations = function(s) {
 
   return tmp1;
 };
+
+
+/////recursion////
+function decodeVariations(S) {
+	/**
+	@param S: string
+	@return: integer
+	*/
+
+	// your code goes here
+  const check = (count, start) => {
+
+         const char = S[start]
+
+         if (char === '0') {
+             return 0
+         }
+
+         if (start >= S.length - 1) {
+             return 1
+         }
+
+         switch (char) {
+             case '1':
+                 // 10
+                 if (S[start + 1] === '0') {
+                     return check(count, start + 2)
+                 } else {
+                     //1 or 1x
+                     return check(count, start + 1) + check(count, start + 2)
+                 }
+             case '2':
+                 // 20
+                 if (S[start + 1] === '0') {
+                     return check(count, start + 2)
+                 } else {
+                     // 27
+                     if (S[start + 1] > 6) {
+                         return check(count, start + 1)
+                     } else {
+                         // 2. or 2x
+                         return check(count, start + 1) + check(count, start +2)
+                     }
+                 }
+             default:
+                 return check(count, start + 1)
+         }
+    }
+  return check(0, 0)
+}
