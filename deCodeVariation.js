@@ -120,3 +120,50 @@ function decodeVariations(S) {
     }
   return check(0, 0)
 }
+
+
+
+////dynamic programing
+function decodeVariations(S) {
+	/**
+	@param S: string
+	@return: integer
+	*/
+
+	// your code goes here
+     // '22' + '2'
+   // for extra '6', stadalone (uses f(n - 1)), or combined (affects f(n - 2))
+
+   // f(n) = f(n - 1) + f(n - 2) (conditions required)
+   // s[n] is 0. s[n- 1] is 1 or 2, f(n - 2). or 0
+   // s[n] is 1 ~ 6 ,s[n-1] is 1 or 2 , f(n - 2) + f(n - 1)
+    // s[n - 1] is 1, f(n - 2) + f(n - 1)
+    //  f(n - 1)
+    const result = Array(S.length + 2).fill(1)
+
+    for (let i = 0; i < S.length; i++) {
+        const index = i + 2
+        const char = S[i]
+        if (char === '0') {
+            if (['1', '2'].includes(S[i - 1])) {
+                result[index] = result[index - 2]
+            } else {
+                return 0
+            }
+        } else if ( char < 7) {
+            if (['1', '2'].includes(S[i - 1])) {
+                result[index] = result[index - 1] + result[index - 2]
+            } else {
+                result[index] = result[index - 1]
+            }
+        } else {
+            if (S[i - 1] === '1') {
+                result[index] = result[index - 1] + result[index - 2]
+            } else {
+                result[index] = result[index - 1]
+            }
+        }
+    }
+
+    return result[S.length - 1 + 2]
+}
