@@ -167,3 +167,35 @@ function decodeVariations(S) {
 
     return result[S.length - 1 + 2]
 }
+
+
+function decodeVariations(str) {
+  // if first char is 0, return 0
+  if (str[0] === '0') return 0
+  // init a dp cache array
+  const dpCache = new Array(str.length).fill(0)
+  // init base case
+  dpCache[str.length] = 1
+
+  // iterate over the str and build from the end to beginning
+  for (let i = str.length - 1; i >= 0; i--) {
+    // consider char by itself
+    const currentChar = str[i]
+    if (currentChar !== '0') {
+      dpCache[i] = dpCache[i+1]
+    } else {
+      dpCache[i] = 0
+    }
+    // if there are characters after the current char
+    const nextChar = str[i+1] && '0123456'.indexOf(str[i+1]) !== -1
+
+    if (i + 1 < str.length && (str[i] === '1' || str[i] === '2' && nextChar)) {
+      dpCache[i] += dpCache[i+2]
+    }
+
+  }
+  return dpCache[0]
+}
+
+console.log(decodeVariations('1262')) // 3
+console.log(decodeVariations('0262')) // 0
