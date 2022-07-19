@@ -24,3 +24,34 @@ var maxProfit = function(prices) {
     return Math.max(...differentProfitArr)
 
 };
+
+
+var maxProfit = function(prices) {
+
+
+    let left=0;
+    let right=left+1;
+    let differentProfitArr=[]
+
+    while(left<prices.length && right<prices.length && left<right){
+
+        if(prices[left]>=prices[right]){
+            right++
+        }else if(prices[left]<prices[right]){
+            let profit=prices[right]-prices[left];
+            differentProfitArr.push(profit);
+            right++
+        }
+
+        if(right>prices.length-1){
+            left++;
+            right=left+1;
+        }
+    }
+   if(differentProfitArr.length===0){
+       return 0
+   }
+
+    return Math.max(...differentProfitArr)
+
+};
