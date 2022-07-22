@@ -33,34 +33,10 @@ var isPalindrome = function(s) {
 };
 
 
-   s=s.toLowerCase();
-    let alphaNum='abcdefghijklmnopqrstuvwxyz0123456789';
-    let newS=''
-    let reverseS=''
-
-   for(let eachEl of s){
-       if(alphaNum.includes(eachEl)){
-           newS+=eachEl
-       }
-   }
-
-    for(let i=newS.length-1;i>=0;i--){
-        reverseS+=newS[i]
-    }
-
-    if(newS===reverseS){
-        return true
-    }else{
-        return false
-    }
-
-
-
-    var isPalindrome = function(s) {
+var isPalindrome = function(s) {
     s=s.toLowerCase();
     let alphaNum='abcdefghijklmnopqrstuvwxyz0123456789';
     let newS=''
-    let reverseS=''
 
     for(let eachEl of s){
         if(alphaNum.includes(eachEl)){
@@ -76,7 +52,7 @@ var isPalindrome = function(s) {
         if(newS[left]===newS[right]){
             left++;
             right--;
-        }else if(newS[left]!==newS[right]){
+        }else{
             result=false
             break
         }
@@ -85,4 +61,26 @@ var isPalindrome = function(s) {
 
     return result
 
+};
+
+
+////most efficent in space and time////
+var isPalindrome = function(s) {
+
+    const newS=s.replace(/[\W|_]/g,'').toLowerCase();
+    let result=true;
+
+    let left=0;
+    let right=newS.length-1;
+
+    while(left<right){
+        if(newS[left]===newS[right]){
+            left++;
+            right--;
+        }else{
+            result=false
+            break
+        }
+    }
+    return result
 };
