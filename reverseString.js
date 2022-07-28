@@ -33,3 +33,17 @@ var reverseString = function(s) {
         right--;
     }
 };
+
+
+var reverseWords = function(s) {
+    
+    let sArr=s.split(' ');
+    console.log(sArr)
+    for(let i=0;i<sArr.length;i++){
+        sArr[i]=sArr[i].split('');
+        sArr[i]=sArr[i].reverse()
+        sArr[i]=sArr[i].join('');
+        
+    }
+   return sArr.join(' ')
+};

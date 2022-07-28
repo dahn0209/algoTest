@@ -32,7 +32,7 @@ var canConstruct = function(ransomNote, magazine) {
    return result
 };
 
-
+////opitmal solution////
 var canConstruct = function(ransomNote, magazine) {
         if (ransomNote.length > magazine.length) { return false; }
     var ransomNoteArr = ransomNote.split('');
@@ -47,5 +47,4 @@ var canConstruct = function(ransomNote, magazine) {
     } else {
         return false;
     }
-
 };
