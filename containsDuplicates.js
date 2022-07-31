@@ -20,3 +20,38 @@ var containsDuplicate = function(nums) {
     }
     return result
 };
+
+
+var containsDuplicate = function(nums) {
+
+    nums.sort((a,b)=>a-b)
+    let result=false;
+
+    for(let i=0;i<nums.length;i++){
+        if(nums[i]===nums[i+1]) result=true
+    }
+
+   return result
+};
+
+
+var containsDuplicate = function(nums) {
+
+    let numsObj={}
+
+   for(let eachNum of nums){
+       if(eachNum in numsObj){
+           numsObj[eachNum]+=1;
+       }else{
+           numsObj[eachNum]=1
+       }
+   }
+    let result=false
+    for(let eachNum in numsObj){
+        let val=numsObj[eachNum];
+        if(val>1){
+            return true
+        }
+    }
+    return result
+};
