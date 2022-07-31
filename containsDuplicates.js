@@ -55,3 +55,25 @@ var containsDuplicate = function(nums) {
     }
     return result
 };
+
+
+var containsDuplicate = function(nums) {
+    //create memory
+    //Go through array and see if what I see now is something i've seen before.
+        //if my number is never seen before, put in memory
+        //if the number does exist in memory, return true
+    //[1,2,3,1]//
+    let memory={};
+    for(let eachNum of nums){
+        if(memory[eachNum]===undefined){
+            memory[eachNum]='haha'
+        }else{
+            return true
+        }
+    }
+    return false
+};
+
+
+////Time Complexity o(N)
+/////Space complexity o(N)
