@@ -77,3 +77,41 @@ var containsDuplicate = function(nums) {
 
 ////Time Complexity o(N)
 /////Space complexity o(N)
+
+
+
+
+var containsDuplicate = function(nums) {
+
+    nums.sort((a,b)=>a-b)
+
+    let left=0;
+    let right=nums.length;
+
+
+    while(left<right){
+        if(nums[left]===nums[left+1]){
+            return true
+        }else{
+            left++
+        }
+        if(left>nums.length-1){
+            break
+        }
+    }
+    return false
+};
+
+
+
+var containsDuplicate = function(nums) {
+   //sort our input array//
+    nums.sort((a,b)=>a-b);
+
+    for(let i=0;i<nums.length;i++){
+        if(i>0&& nums[i-1]===nums[i]){
+            return true
+        }
+    }
+    return false
+};
