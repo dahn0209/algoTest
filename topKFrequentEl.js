@@ -56,6 +56,6 @@ var topKFrequent = function(nums, k) {
             ///spread would flatten the structure--->...
         }
     }
-    return res.slice(0,k)
+    return result.slice(0,k)
 
 }
