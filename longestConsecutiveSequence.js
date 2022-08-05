@@ -4,7 +4,6 @@ var longestConsecutive = function(nums) {
         return 0
     }
     const set=new Set(nums);
-    console.log(set)
     let max=0;
 
     for(let num of set){
@@ -20,4 +19,25 @@ var longestConsecutive = function(nums) {
         max=Math.max(max,currMax)
     }
     return max
+};
+
+
+var longestConsecutive = function(nums) {
+
+    let set=new Set(nums);
+    let streak=0;
+
+    for(let num of set){
+        if(set.has(num-1)){
+            continue
+        }else{
+            let currStreak=1;
+            while(set.has(num+1)){
+                currStreak++;
+                num++
+            }
+            streak=Math.max(streak,currStreak)
+        }
+    }
+    return streak
 };
