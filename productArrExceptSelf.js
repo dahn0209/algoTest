@@ -1,3 +1,4 @@
+///This one failed!!!!!
 var productExceptSelf = function(nums) {
     ///make copy of nums
     let result=[]
@@ -66,7 +67,7 @@ var productExceptSelf = function(nums) {
 
 };
 
-
+///optimal solution/////
 var productExceptSelf = function(nums) {
 
     let left=[...nums];
