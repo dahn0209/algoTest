@@ -20,4 +20,19 @@ const add = (x, y) => {
       expect(add(50, 50)).toBe(100);
     });
   });
+
+//   we expecet homeCriteria to be a function-PASSSING;
+//   we expect homeCriteria to return string-PASSING;
+//   we expetct homeCriteria to acccept string arguments-PASSING;
+//   we expect homeCriteria to follow the string pattern:`I am looking for a ${size} bedroon ${type} in ${city}`-PASSING
+
+const isFunction=typeof homeCriteria==='function';
+const returnTpyeIsAstring=typeof homeCriteria()==='string';
+
+const size='3';
+const type='apartment';
+const city='Jersey City';
+
+const typesOfArguments=(typeof size ==='string')&&(typeof type ==='string')&&(typeof city ==='string')
+
   
