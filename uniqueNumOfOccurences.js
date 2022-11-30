@@ -20,3 +20,27 @@ var uniqueOccurrences = function(arr) {
     }
     return true
 };
+
+
+var uniqueOccurrences = function(arr) {
+    
+    let obj={}
+    
+    for(let eachNum of arr){
+        if((eachNum in obj)){
+            obj[eachNum]++
+        }else{
+            obj[eachNum]=1;
+        }
+    }
+        
+    let value=(Object.values(obj));
+    
+    
+    
+    return value.length===new Set(value).size
+};
+
+
+
+
