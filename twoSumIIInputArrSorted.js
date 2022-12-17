@@ -30,7 +30,7 @@ var twoSum = function(numbers, target) {
 };
 
 
- */
+
 var twoSum = function(nums, target) {
 
     let newNum=[...nums]
@@ -74,4 +74,23 @@ var twoSum = function(nums, target) {
     }
 
 
+};
+
+
+var twoSum = function(nums, target) {
+    let originalNums=nums.slice()
+    nums.sort((a,b)=>a-b);
+
+    let left=0;
+    let right=nums.length-1;
+
+    while(left<right){
+        if(nums[left]+nums[right]===target){
+            return [originalNums.indexOf(nums[left]),originalNums.lastIndexOf(nums[right])]
+        }else if(nums[left]+nums[right]<target){
+            left++
+        }else if(nums[left]+nums[right]>target){
+            right--
+        }
+    }    
 };
