@@ -30,3 +30,27 @@ var isPalindrome = function(x) {
   return remainingStringIsPalindrome;
 
 };
+
+
+/**
+ * @param {number} x
+ * @return {boolean}
+ */
+var isPalindrome = function(x) {
+
+  let xStr=x.toString();
+
+  let left=0;
+  let right=xStr.length-1;
+
+  let result=true;
+  while(left<right){
+      if(xStr[left]!==xStr[right]){
+          return false
+      }
+      left++;
+      right--;
+  }
+  return (result)
+  
+};
