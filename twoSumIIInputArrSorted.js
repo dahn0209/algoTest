@@ -92,5 +92,5 @@ var twoSum = function(nums, target) {
         }else if(nums[left]+nums[right]>target){
             right--
         }
-    }    
+    }     
 };
