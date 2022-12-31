@@ -32,3 +32,36 @@ for(let i=0;i<str.length;i++){
 return result
 
 };
+
+
+var longestPalindrome = function(s) {
+    if(s.length<=1){
+        return s
+    }
+    
+
+    let start = 0;
+    let length = 0;
+    
+    for (let i = 0; i < s.length; i++) {
+        
+        const lengthChar = expandCenter(s, i, i);
+        const lengthSpace = expandCenter(s, i, i + 1);
+        const longestChar = Math.max(lengthChar, lengthSpace)
+        
+        if (longestChar > length) {
+            length = longestChar;
+            start = i - Math.floor((length - 1) / 2);
+        }
+    }
+    
+    return s.substr(start, length);
+};
+
+function expandCenter(s, left, right) {
+  while (left >= 0 && right < s.length && s[left] === s[right]) {
+    left--;
+    right++;
+  }
+  return right - left - 1;
+}
