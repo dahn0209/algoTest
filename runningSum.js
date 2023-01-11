@@ -39,3 +39,18 @@ var runningSum = function(nums) {
     return (nums)
 
 };
+
+
+
+
+var runningSum = function(nums) {
+
+    let newNum=[...nums];
+
+    for(let left=1;left<nums.length;left++){
+
+        newNum[left]=newNum[left-1]+nums[left]
+        
+    }
+    return newNum
+};
