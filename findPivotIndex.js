@@ -49,6 +49,9 @@ var pivotIndex = function(nums) {
     }
     let leftSum=0;
     for(let i=0;i<nums.length;i++){
+
+        console.log(`index:${i}; sums:${sum}; leftSum:${leftSum}; nums[i]:${nums[i]}; leftSum:${leftSum}`)
+        console.log(`index:${i}; equation:${sum-leftSum-nums[i]}; leftSum:${leftSum}`)
         if(sum-leftSum-nums[i]===leftSum){
             return i
         }
