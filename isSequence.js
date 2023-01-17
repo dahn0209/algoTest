@@ -62,3 +62,24 @@ var isSubsequence = function(s, t) {
     }
 
 };
+
+
+var isSubsequence = function(s, t) {
+
+    let sLength=s.length;
+    let sIndex=0
+
+    for(let i=0;i<t.length;i++){
+        if(s[sIndex]===t[i]){
+            sLength--;
+            sIndex++;
+        }
+    }
+
+    if(sLength===0){
+        return true
+    }
+
+    return false
+ 
+};
