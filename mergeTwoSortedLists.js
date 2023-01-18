@@ -27,3 +27,37 @@ var mergeTwoLists = function(l1, l2) {
 
 
 
+var mergeTwoLists = function(list1, list2) {
+
+    let current=new ListNode();
+    let dummy=current
+    console.log(JSON.stringify(current))
+    console.log(JSON.stringify(dummy))
+    console.log(JSON.stringify(list1));
+    console.log(JSON.stringify(list2))
+
+    while(list1&&list2){
+        if(list1.val<list2.val){
+            current.next=list1;
+            list1=list1.next
+        }else{
+            current.next=list2;
+            list2=list2.next
+        }
+        current=current.next
+    }
+
+    if(list1){
+        current.next=list1
+    }
+    if(list2){
+        current.next=list2
+    }
+
+    console.log('current after=>',JSON.stringify(current));
+    console.log('dummy after=>',JSON.stringify(dummy));
+    console.log('list1 after=>',JSON.stringify(list1));
+    console.log('list2 after=>',JSON.stringify(list2))
+    return dummy.next
+    
+};
