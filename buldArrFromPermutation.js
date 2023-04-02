@@ -8,3 +8,17 @@ var buildArray = function(nums) {
     }
     return(result)
 };
+
+
+var buildArray = function(nums) {
+    let newNums=[...nums]
+
+    for(let i=0;i<newNums.length;i++){
+        let eachNum=newNums[i];
+        let newEachNum=newNums[eachNum];
+        eachNum=newEachNum;
+        nums[i]=eachNum;
+    
+    }
+    return (nums)
+};
