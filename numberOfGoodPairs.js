@@ -44,3 +44,32 @@ var numIdenticalPairs = function(nums) {
     return result    
     
 };
+
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var numIdenticalPairs = function(nums) {
+
+    let left=0;
+    let right=1;
+    let result=0;
+
+    while(left<nums.length && right<nums.length&& left<right){
+
+        if(nums[left]===nums[right]){
+            result++;
+            right++
+        }else{
+            right++
+        }
+
+        if(right===nums.length){
+            left++;
+            right=left+1
+        }
+    }
+
+    return result    
+};
