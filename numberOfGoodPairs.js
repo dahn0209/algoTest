@@ -19,3 +19,28 @@ var numIdenticalPairs = function(nums) {
     
     
 };
+
+
+
+var numIdenticalPairs = function(nums) {
+
+    let left=0;
+    let right=nums.length-1;
+    let result=0;
+
+    while(left<right){
+       if(nums[left]===nums[right]){
+           result++;
+           right--
+       }else{
+        right--;
+       }
+       if(right===left){
+           right=nums.length-1;
+           left++;
+       }
+    }
+
+    return result    
+    
+};
