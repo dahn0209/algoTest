@@ -4,6 +4,30 @@ var fizzBuzz = function(n) {
 
     for(let i=1;i<=n;i++){
 
+        arr.push(i.toString())
+        if(i%3===0 &&i%5!==0){
+            arr[i-1]='Fizz'
+        }
+        else if(i%5==0 &&i%3!==0){
+            arr[i-1]='Buzz'
+        }
+        else if(i%3===0&i%5===0){
+            arr[i-1]='FizzBuzz'
+        }
+    }
+
+return (arr)
+    
+
+
+
+
+var fizzBuzz = function(n) {
+
+    let arr=[]
+
+    for(let i=1;i<=n;i++){
+
         if(i%3===0 &&i%5!==0){
             arr.push('Fizz')
         }
