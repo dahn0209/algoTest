@@ -72,6 +72,12 @@ function readLine() {
  *              /           \
  *            (1,-1)         (0,0)
  * 
+ * 
+ * 1. instantiate traverse function 
+ * 2. base cases
+ * 3/ recursive cases
+ * re
+ * 
  * The function is expected to return an INTEGER.
  * The function accepts following parameters:
  *  1. INTEGER m
@@ -96,6 +102,38 @@ function latticePaths(row, col) {
     
     return up+left
 
+}
+
+///lattticePaths with dynamic programming and memoization///
+const latticePaths=(row,col)=>{
+    
+    let cache={};
+    console.log('cache:',cache)
+    const traverse=(row,col)=>{
+        let key=`${row}_${col}`
+        if(cache[key]){
+            return cache[key];
+        }
+        console.log('cacke inside traverse:',cache)
+            /////base casees there are two
+    if(row<0 || col<0){
+        return 0
+    }
+    ///reached top left corner
+    if(row===0&&col===0){
+        return 1
+    }
+    ///two recursive case because left and up
+        let up= traverse(row-1,col)
+        let left=traverse(row,col-1)
+    
+    let result= up+left;
+    cache[key]=result;
+    return result
+
+    }
+    return traverse(row,col)
+    
 }
 
 
