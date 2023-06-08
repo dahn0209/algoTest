@@ -23,14 +23,13 @@ function readLine() {
 }
 
 
-
 /*
  * Complete the 'heapsort' function below.
  *
  * The function is expected to return an INTEGER_ARRAY.
  * The function accepts INTEGER_ARRAY arr as parameter.
  * 
- * 1.Heapify
+ * 1.Heapify.    time:O(N). 
  * 
  *          parent(n).           children(m)
  * idx          0                   1,2
@@ -55,7 +54,7 @@ function readLine() {
  * 
  * 
  * 
- * 2.sort the array aka sortify
+ * 2.sort the array aka sortify.  time:O(N log(N))
  * 
  * 
  *              [108, 50, 42, 15, 8, 23, 16, 4]
@@ -68,9 +67,6 @@ function readLine() {
  *       -swap 0th index with wall
  *       -call bubble down (arr,0 wall)
  *       - wall--
- * 
-
- * 
  * 
  * 
  */
