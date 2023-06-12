@@ -74,10 +74,13 @@ function bfs(origin) {
             let edge=edges[i];
             // if not vistied
             if(!visited.includes(edge)){
+                ///enqueue edge
                 queue.push(edge);
+                ////add edge to visited
                 visited.push(edge)
             }   
         }
+        ////add current id to result
         result+=(current.id)
     }
     
