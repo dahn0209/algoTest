@@ -23,3 +23,22 @@ var climbStairs = function(n) {
     return memo[1]
     
 };
+
+
+var climbStairs = function(n) {
+    
+    if (n === 0 || n === 1) {
+        return 1;
+    }
+    let step1 = 1; 
+    let step2 = 1;
+
+    while(n > 1) {
+      let next = step1 + step2;
+      step2 = step1;
+      step1 = next;
+      n--;
+    }
+    return step1;
+}
+

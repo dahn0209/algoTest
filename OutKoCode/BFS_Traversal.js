@@ -64,6 +64,8 @@ function treeBFS(root) {
     }
     
     while(queue.length>0){
+        // * -set current to queue.dequeue;
+
         let current=queue.shift();
         
         

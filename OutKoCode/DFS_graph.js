@@ -81,7 +81,7 @@ function find_all_paths(origin, destination) {
         }
         ////if current.id is equal to destination
         if(current.id===destination){
-            ///push path to result//
+            ///push path to result//action
             result.push(path.join(''))
             ///stop///
             return;
